@@ -7,6 +7,7 @@ const port = 3000
 app.get('/',(req,res)=>{
     res.send('Hello Word')
 })
+//est
 app.get('/user',(req,res)=>{
     res.send('Minh Nhat')
 })
