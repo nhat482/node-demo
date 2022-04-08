@@ -15,7 +15,12 @@ app.get('/', (req, res) => {
   })  
 //est
 app.get('/user',(req,res)=>{
-    res.send('Minh Nhat')
+    res.render('users/list',{
+        users:[
+            {id:1, name:'Minh'},
+            {id:2, name: 'Nhat'}
+        ]
+    })
 })
 app.listen(port,()=>{
     console.log('Example app listening on port '+port)
