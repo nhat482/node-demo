@@ -1,0 +1,14 @@
+h2 Create User
+form(action='/users/create' method="POST")
+  label(for='fname') First name:
+  br
+  input#fname(type='text', name='name')
+  br
+  label(for='lname') Email:
+  br
+  input#lname(type='text', name='email')
+  br
+  br
+  input(type='submit', value='Submit')
+p
+  | If you click the &quot;Submit&quot; button, the form-data will be sent to a page called &quot;/action_page.php&quot;.
