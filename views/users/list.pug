@@ -4,7 +4,7 @@ form.seach-form(action="/users/search")
   input(type="submit")
 
 .users 
-  if users.length > 0
+  if users.length >0 
     table
       thead
         tr
@@ -14,9 +14,10 @@ form.seach-form(action="/users/search")
         each user in users
           tr
             td=  user.name 
-            td 
+            td= user.email
+
               a(href="/users/" + user.id) View
-  else
-    p No user to display
+  else 
+    p No user found
 
 a(href="/users/create") Create User 

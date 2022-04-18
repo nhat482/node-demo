@@ -4,11 +4,19 @@ form(action='/users/create' method="POST")
   br
   input#fname(type='text', name='name')
   br
-  label(for='lname') Email:
+  label(for='email') Email:
   br
-  input#lname(type='text', name='email')
+  input#email(type='text', name='email')
+  br
+  label(for='icreid') ID:
+  br
+  input#icreid(type='number', name ='id')
   br
   br
-  input(type='submit', value='Submit')
+  input(type='submit', value='Submit',onclick='myFunction()')
 p
   | If you click the &quot;Submit&quot; button, the form-data will be sent to a page called &quot;/action_page.php&quot;.
+script.
+  function myFunction() {
+  document.getElementById("myNumber").stepUp(1);
+  }

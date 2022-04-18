@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "minh",
+      "email": "tuphanminhnhat@gmail.com"
+    },
+    {"id": 2,
+      "name": "Nhat Minh",
+      "email": "nhat@candylio.com"
+    },
+    {"id": 3,
+      "name": "minh",
+      "email": "minhnhat482@gmail.com"
+    },
+    {
+      "name": "minh",
+      "email": "tuphanminhnhat@gmail.com",
+      "id": 5
+    },
+    {
+      "name": "Nhat Minh",
+      "email": "naht@candylio.com",
+      "id": 6
+    }
+  ]
+}
