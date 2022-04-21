@@ -2,12 +2,6 @@
 import express from 'express'
 const app = express()
 
-//define database
-/*var low =require('lowdb');
-var FileSync =require('lowdb/adapters/FileSync');
-var adapter = new FileSync('db.json') 
-var db=low(adapter)
-db.defaults({users:[]}).write();  */
 import { join, dirname } from 'path'
 import { Low, JSONFile } from 'lowdb'
 import { fileURLToPath } from 'url'
@@ -34,11 +28,6 @@ app.get('/', (req, res) => {
   await db.read()
   db.data ||= { users: [] } 
 
-/*var users = [
-    {id:1, name:"Minh Nhat", email: "nhat@gamil.com"},
-    {id:2, name:"Eden", email: "eden@gamil.com"}
-]*/
-
 //get users
 app.get('/users',function(req,res){
     res.render('users/list',{
@@ -48,14 +37,17 @@ app.get('/users',function(req,res){
 //search user
 app.get('/users/search',(req,res)=> {
     var name_search = req.query.name
-    var result = users.filter((user)=>{
-        return user.name.toLowerCase().indexOf(name_search.toLowerCase())!==-1
-
-    })
-    res.render('users/list',{
-        users:result
-    })
-
+        var result = db.data.users.filter((user)=>{
+            return user.name.toLowerCase().indexOf(name_search.toLowerCase())!==-1
+        })
+       /*var result =db.data.users.find((name)=>{
+             return name.name == name_search
+       })*/
+        console.log(result)
+        res.render('users/list',{
+            users:result
+        })
+ 
 })
 //get form create user
 app.get('/users/create',(req,res)=>{
@@ -64,7 +56,6 @@ app.get('/users/create',(req,res)=>{
 //create user
 app.post('/users/create',(req,res)=>{
     const post= db.data.users.push(req.body)
-    console.log(req.body.id)
     //db.write()
     res.redirect('/users')
 })
@@ -74,8 +65,8 @@ app.get('/users/:id', (req, res) => {
 	var user = db.data.users.find( (user) => {
 		return user.id == parseInt(req.params.id);
 	});
-    console.log(user)
     // Render trang show, với một biến user được định nghĩa là user vừa tìm được
+    console.log(user)
 	res.render('users/show', {
     	user: user
     })

@@ -3,21 +3,18 @@ form.seach-form(action="/users/search")
   input(name="name", type="text", placeholder="name")
   input(type="submit")
 
+
 .users 
-  if users.length >0 
     table
       thead
         tr
           th  Name 
           th  Email 
       tbody
-        each user in users
+        each user in users 
           tr
             td=  user.name 
-            td= user.email
-
-              a(href="/users/" + user.id) View
-  else 
-    p No user found
-
+            td=  user.email
+            td 
+              a(href="/users/"+user.id) View 
 a(href="/users/create") Create User 
